@@ -51,3 +51,32 @@ void loadFromFile(University*& data, int& size)
 	
 	fin.close();
 }
+
+void showTable(const University* data, int size)
+{
+    if (size == 0)
+    {      
+        cout << "База данных пуста!\n";      
+        return;  
+    }
+       
+    cout << left       
+    << setw(6) << "ID"       
+    << setw(25) << "Название"       
+    << setw(18) << "Город"       
+    << setw(25) << "Ректор"       
+    << setw(12) << "Студенты"       
+    << setw(12) << "Факульт."       
+    << setw(10) << "Рейтинг" << '\n';    
+    for (int i = 0; i < size; i++)  
+    {      
+        cout << left           
+        << setw(6) << data[i].id           
+        << setw(25) << data[i].name           
+        << setw(18) << data[i].city           
+        << setw(25) << data[i].rector           
+        << setw(12) << data[i].students           
+        << setw(12) << data[i].faculties           
+        << setw(10) << data[i].rating << '\n';  
+    }
+}  
