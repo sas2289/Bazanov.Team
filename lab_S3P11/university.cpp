@@ -130,3 +130,28 @@ void calculate(const University* data, int size)
     << fixed << setprecision(2)
     << totalRating / size << '\n';
 }
+
+void saveToFile(const University* data, int size)
+{
+    string filename;
+    cout << "Введите имя нового файла: ";
+    cin >> filename;
+    ofstream fout(filename);
+    if (!fout.is_open())
+    {
+        cout << "Ошибка открытия файла!\n";
+        return;
+    }
+    for (int i = 0; i < size; i++)
+    {
+        fout << data[i].id << ';'
+        << data[i].name << ';'
+        << data[i].city << ';'
+        << data[i].rector << ';'
+        << data[i].students << ';'
+        << data[i].faculties << ';'
+        << data[i].rating << '\n';
+    }
+    fout.close();
+    cout << "Данные сохранены в файл " << filename << '\n';
+}
