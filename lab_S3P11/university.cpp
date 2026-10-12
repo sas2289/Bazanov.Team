@@ -62,21 +62,21 @@ void showTable(const University* data, int size)
        
     cout << left       
     << setw(6) << "ID"       
-    << setw(25) << "Название"       
-    << setw(18) << "Город"       
-    << setw(25) << "Ректор"       
-    << setw(12) << "Студенты"       
-    << setw(12) << "Факульт."       
-    << setw(10) << "Рейтинг" << '\n';    
+    << setw(18) << "Name"       
+    << setw(30) << "City"       
+    << setw(15) << "Rector"       
+    << setw(15) << "Students"       
+    << setw(10) << "Faculties"       
+    << setw(10) << "Rating" << '\n';    
     for (int i = 0; i < size; i++)  
     {      
         cout << left           
         << setw(6) << data[i].id           
-        << setw(25) << data[i].name           
-        << setw(18) << data[i].city           
-        << setw(25) << data[i].rector           
-        << setw(12) << data[i].students           
-        << setw(12) << data[i].faculties           
+        << setw(18) << data[i].name           
+        << setw(30) << data[i].city           
+        << setw(15) << data[i].rector           
+        << setw(15) << data[i].students           
+        << setw(10) << data[i].faculties           
         << setw(10) << data[i].rating << '\n';  
     }
 }
@@ -171,27 +171,26 @@ int main()
         cout << "4. Сохранение в новый файл\n";
         cout << "0. Выход\n";
         cout << "Выберите действие: ";
-        cin >> choise
+        cin >> choice;
         
-        if (choise == 1)
-        showData(data,size);
+        if (choice == 1)
+        showTable(data,size);
         
-        else if (choise == 2)
-        editData(data,size);
+        else if (choice == 2)
+        editUniversity(data,size);
         
-        else if (choise == 3)
+        else if (choice == 3)
         calculate(data,size);
         
-        else if (choise == 4)
+        else if (choice == 4)
         saveToFile(data,size);
         
-        else if (choise == 0)
-        cout << "Выход" << endl
+        else if (choice == 0)
+        cout << "Выход" << endl;
         else cout << "Неверный выбор" << endl;
      }
-     while (choise != 0);
+     while (choice != 0);
      
      delete[] data;
-     return 0
+     return 0;
 }
-        
