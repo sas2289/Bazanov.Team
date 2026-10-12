@@ -79,4 +79,33 @@ void showTable(const University* data, int size)
         << setw(12) << data[i].faculties           
         << setw(10) << data[i].rating << '\n';  
     }
+}
+
+void editUniversity(University* data, int size)
+{  
+    int id;
+    cout << "Введите ID записи для изменения: ";
+    cin >> id;
+    for (int i = 0; i < size; i++)
+    {
+        if (data[i].id == id)
+        {  
+            cin.ignore(numeric_limits<streamsize>::max(), '\n');
+            cout << "Новое название: ";
+            getline(cin, data[i].name);
+            cout << "Новый город: ";   
+            getline(cin, data[i].city);
+            cout << "Новое ФИО ректора: ";
+            getline(cin, data[i].rector);
+            cout << "Количество студентов: ";
+            cin >> data[i].students;
+            cout << "Количество факультетов: ";
+            cin >> data[i].faculties;
+            cout << "Рейтинг: ";
+            cin >> data[i].rating;
+            cout << "Запись изменена!\n";
+            return;
+         }
+     }    
+cout << "Запись не найдена!\n";
 }  
