@@ -108,4 +108,25 @@ void editUniversity(University* data, int size)
          }
      }    
 cout << "Запись не найдена!\n";
-}  
+}
+
+void calculate(const University* data, int size)
+{
+    if (size == 0)
+    {
+        cout << "Нет данных для вычислений!\n";
+        return;
+    }    
+    long long totalStudents = 0;
+    double totalRating = 0;
+    for (int i = 0; i < size; i++)
+    {
+        totalStudents += data[i].students;
+        totalRating += data[i].rating;
+    }
+    cout << "Общее количество студентов: "
+    << totalStudents << '\n';
+    cout << "Средний рейтинг университетов: "
+    << fixed << setprecision(2)
+    << totalRating / size << '\n';
+}
