@@ -155,3 +155,43 @@ void saveToFile(const University* data, int size)
     fout.close();
     cout << "Данные сохранены в файл " << filename << '\n';
 }
+
+int main()
+{
+    University* data = NULL;
+    int size = 0;
+    int choice;
+    loadFromFile(data, size);
+    do
+    {
+        cout << "\n--- БАЗА УНИВЕРСИТЕТОВ ---\n";
+        cout << "1. Просмотр данных\n";
+        cout << "2. Корректировка записи\n";
+        cout << "3. Вычисления\n";
+        cout << "4. Сохранение в новый файл\n";
+        cout << "0. Выход\n";
+        cout << "Выберите действие: ";
+        cin >> choise
+        
+        if (choise == 1)
+        showData(data,size);
+        
+        else if (choise == 2)
+        editData(data,size);
+        
+        else if (choise == 3)
+        calculate(data,size);
+        
+        else if (choise == 4)
+        saveToFile(data,size);
+        
+        else if (choise == 0)
+        cout << "Выход" << endl
+        else cout << "Неверный выбор" << endl;
+     }
+     while (choise != 0);
+     
+     delete[] data;
+     return 0
+}
+        
