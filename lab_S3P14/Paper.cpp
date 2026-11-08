@@ -1,4 +1,4 @@
-#include "include/Paper.h"
+#include "Paper.h"
 
 #include <iostream>
 
